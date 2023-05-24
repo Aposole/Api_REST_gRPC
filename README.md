@@ -14,7 +14,7 @@ This project implements a microservices architecture using gRPC, REST, and Graph
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/microservices-project.git
+   git clone https://github.com/Aposole/microservices-project.git
 
 cd microservices-project
 npm install
