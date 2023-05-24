@@ -1,28 +1,61 @@
 syntax = "proto3";
+
 package game;
 
+
 message Game {
-string id = 1;
-string title = 2;
-string description = 3;
+  string id = 1;
+  string title = 2;
+  string description = 3;
 
 }
+
+
 
 message GetGameRequest {
-string game_id = 1;
+  string game_id = 1;
+
 }
 message GetGameResponse {
-Game game = 1;
+  Game game = 1;
 }
+
 message SearchGamesRequest {
-string query = 1;
+  string query = 1;
 }
+
 message SearchGamesResponse {
-repeated Game games = 1;
+  repeated Game games = 1;
 }
-// Définition du service de films
+
+message CreateGameRequest {
+  string game_id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message CreateGameResponse {
+  Game game = 1;
+}
+message DeleteGameRequest {
+  string gameId = 1;
+}
+
+message DeleteGameResponse {
+}
+
+message UpdateGameRequest {
+  Game game = 1;
+}
+
+message UpdateGameResponse {
+  Game game = 1;
+}
+
 service GameService {
-rpc Getgame(GetGameRequest) returns (GetGameRequest);
-rpc SearchGames(SearchGamesRequest) returns (SearchGamesResponse);
-// Ajouter d'autres méthodes au besoin
+  rpc GetGame(GetGameRequest) returns (GetGameResponse);
+  rpc SearchGames(SearchGamesRequest) returns (SearchGamesResponse);
+  rpc CreateGame(CreateGameRequest) returns (CreateGameResponse);
+  rpc DeleteGame(DeleteGameRequest) returns (DeleteGameResponse) {}
+  rpc UpdateGame(UpdateGameRequest) returns (UpdateGameResponse) {}
 }
